@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: #505050;
+}
+
+/* form */
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* container */
+
+.container{
+    background-color: #313131;
+    border-radius: 5px;
+    width: 420px;
+    max-width: 100%;
+    height: 100%;
+    padding: 30px 40px;
+    border: 1px solid #1f2227;
+    border-bottom: 1px solid #698dc3;
+    box-shadow: 0 0 100px #35383d;
+}
+
+/* group */
+
+.form-group{
+    margin-bottom: 5px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+/* label */
+
+.form-group label{
+    display: inline-block;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: rgb(150, 150, 150);
+    cursor: default;
+}
+
+/* input */
+
+.form-group input{
+    background: #2b2b2b;
+    border: 2px solid #1f2227;
+    border-radius: 0px;
+    outline: none;
+    box-shadow: 0px 0px 0px 1px #35383d inset;
+    color: rgb(150, 150, 150);
+    display: block;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+    transition: all .3s ease;
+}
+
+.form-group input:focus{
+    border: 2px solid #698dc3;
+    color: #d7d7d7;
+}
+
+.form-group input:hover{
+    border: 2px solid #698dc3;
+}
+
+/* button */
+
+.form-group input[type = 'submit']{
+    background: #2b2b2b;
+    border-radius: 3px;
+    border: 2px solid #1f2227;
+    box-shadow: 0px 0px 0px 1px #35383d inset;
+    color: rgb(150, 150, 150);
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all .3s ease;
+}
+
+.form-group input[type = 'submit']:hover{
+    background-color: #698dc3;
+    color: #fff;
+    border: 2px solid #698dc3;
+}
+
+/* required text */
+
+.form-group .required{
+    font-size: 11px;
+    text-shadow: 0px 0px 5px #c02222;
+    color: red;
+    margin-left: 5px;
+}
+
+/* p and link */
+
+.form-group p{
+    cursor: default;
+    color: #000;
+    width: 100%;
+}
+
+.form-group a{
+    text-decoration: none;
+    color: rgb(150, 150, 150);
+    border: none;
+    transition: all .3s ease-in;
+}
+
+.form-group a:hover{
+    transition: all .5s ease-out;
+    color: #698dc3;
+    border-bottom: 1px solid #698dc3;
+}
+
+/* info and error */
+
+.error{
+    text-shadow: 0px 0px 5px #a94442;
+    color: #a94442;
+    border-bottom: 1px solid #a94442;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 90%;
+    cursor: default;
+}
+
+.info{
+    text-shadow: 0px 0px 5px green;
+    color: green;
+    border-bottom: 1px solid green;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 90%;
+    cursor: default;
+}
