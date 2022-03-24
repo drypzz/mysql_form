@@ -1,5 +1,5 @@
 <?php
-    include '../php/connect.php';
+    include '../database/connect.php';
 
     if(isset($_POST['username']) && isset($_POST['password'])){
 
@@ -14,36 +14,36 @@
         $pass = check($_POST['password']);
 
         if(empty($user)){
-            header('Location: ../../index.php?error=* Insira um Usuario.');
+            header('Location: ../../login.php?error=* Insira um Usuario.');
         }else if(empty($pass)){
-            header('Location: ../../index.php?error=* Insira uma Senha.');
+            header('Location: ../../login.php?error=* Insira uma Senha.');
             exit();
         }else{
-            $sql = "SELECT * FROM tab_test WHERE username='$user' AND password='$pass'";
+            $sql = "SELECT * FROM tab_cadastro WHERE account='$user' AND password='$pass'";
             
             $result = mysqli_query($conn, $sql);
 
             if(mysqli_num_rows($result) === 1){
                 $row = mysqli_fetch_assoc($result);
 
-                if($row['username'] === $user && $row['password'] === $pass){
-                    $_SESSION['username'] = $row['username'];
+                if($row['account'] === $user && $row['password'] === $pass){
+                    $_SESSION['account'] = $row['account'];
                     $_SESSION['password'] = $row['password'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['id'] = $row['id'];
                     header('Location: ../../index.php?info=* Logado com sucesso.');
                     exit();
                 }else{
-                    header('Location: ../../index.php?error=* Usuario ou senha incorretos.');
+                    header('Location: ../../login.php?error=* Usuario ou senha incorretos.');
                     exit();
                 };
             }else{
-                header('Location: ../../index.php?error=* Usuario ou senha incorretos.');
+                header('Location: ../../login.php?error=* Usuario ou senha incorretos.');
                 exit();
             };
         };
     }else{
-        header('Location: ../../index.php');
+        header('Location: ../../login.php');
         exit();
     };
 ?>

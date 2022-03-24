@@ -1,6 +1,7 @@
 <?php
+    include '../database/connect.php';
+
     if(isset($_POST['username']) && isset($_POST['password'])){
-        include '../php/connect.php';
 
         function check($data){
             $data = trim($data);
@@ -14,25 +15,36 @@
         $check = check($_POST['check-password']);
         $email = check($_POST['email']);
 
+        $dbquery = "SELECT * FROM tab_cadastro WHERE account='$user' AND email='$email'";
+        $dbresult = mysqli_query($conn, $dbquery);
+        $row = mysqli_fetch_assoc($dbresult);
+
         if(empty($user)){
             header('Location: ../../register.php?error=* Insira um Usuario.');
-        }else if(empty($pass)){
-            header('Location: ../../register.php?error=* Insira uma Senha.');
-        }else if(empty($check)){
-            header('Location: ../../register.php?error=* Confirme a senha.');
         }else if(empty($email)){
             header('Location: ../../register.php?error=* Insira um Email.');
+        }else if(empty($pass)){
+            header('Location: ../../register.php?error=* Insira uma senha.');
+        }else if(empty($check)){
+            header('Location: ../../register.php?error=* Confirme a senha.');
         }else if($check !== $pass){
             header('Location: ../../register.php?error=* As senhas não coincidem.');
         }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             header('Location: ../../register.php?error=* Insira um email valido.');
             exit();
+        }else if($row['account'] === $user){
+            header('Location: ../../register.php?error=* Este usuario ja esta cadastrado.');
+            exit();
+        }else if($row['email'] === $email){
+            header('Location: ../../register.php?error=* Este email ja esta cadastrado.');
+            exit();
         }else{
-            $sql = "INSERT INTO tab_test(username, password, email) VALUES('$user','$pass', '$email')";
-            
-            $result = mysqli_query($conn, $sql);
+            $sql = "INSERT INTO tab_cadastro(account, password, email) VALUES('$user','$pass', '$email')";
 
-            header('Location: ../../index.php?info=* Registrado com sucesso');
+            $res = mysqli_query($conn, $sql);
+
+            header('Location: ../../login.php?info=* Registrado com sucesso');
+            exit();
         };
     }else{
         header('Location: ../../register.php');

@@ -4,7 +4,7 @@
         <meta charset='UTF-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
-        <title>Website | Register</title>
+        <title>Website | Login</title>
 
         <link rel="stylesheet" href="assets/style/css.css">
 
@@ -24,40 +24,32 @@
                         <a href="index.php" class="navbar-links">< Index</a>
                     </li>
                     <li class="navbar-btn">
-                        <a href="login.php" class="button">ENTRAR</a>
+                        <a href="register.php" class="button">CADASTRAR</a>
                     </li>
                 </ul>
             </div>
         </nav>
-        <main class="main-form-r">
+        <main class="main-form">
             <div class="container">
                 <div class="header">
-                    <h1>Cadastrar</h1>
+                    <h1>Entrar</h1>
                     <br>
-                    <p>Já tem uma conta? <a href="login.php">Entrar</a></p>
+                    <p>Ainda não tem uma conta? <a href="register.php">Cadastrar-se</a></p>
                 </div>
-                <form action="assets/database/reg.php" method="post" class="form">
+                <form action="assets/database/log.php" method="post" class="form">
                     <div class="form-group">
                         <label for="user">Usuario:<span class='required'>OBRIGATÓRIO</span></label>
                         <input type="text" placeholder="Usuario" id="user" name="username">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email:<span class='required'>OBRIGATÓRIO</span></label>
-                        <input type="text" placeholder="Email" id="email" name="email">
-                    </div>
-                    <div class="form-group">
                         <label for="password">Senha:<span class='required'>OBRIGATÓRIO</span></label>
                         <input type="password" placeholder="Senha" id="password" name="password">
+                        <span class="icon-password" id="icon-pass">
+                            <i class="fa fa-eye" aria-hidden="true" id="eye"></i>
+                        </span>
                     </div>
                     <div class="form-group">
-                        <label for="check">Confirmar Senha:<span class='required'>OBRIGATÓRIO</span></label>
-                        <input type="password" placeholder="Confirmar Senha" id="check" name="check-password">
-                    </div>
-                    <span class="icon-password" id="icon-pass">
-                        <i class="fa fa-eye" aria-hidden="true" id="eye"></i> Mostrar Senha?
-                    </span>
-                    <div class="form-group">
-                        <input type="submit" value="CADASTRAR">
+                        <input type="submit" value="ENTRAR">
                     </div>
                 </form>
             </div>
@@ -68,7 +60,7 @@
                     <h2>Lorem</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                 </div>
-                <div class="grid_box link">
+                <div class="grid_box">
                     <h2>Lorem</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                 </div>
